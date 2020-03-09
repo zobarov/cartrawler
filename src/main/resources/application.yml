@@ -1,0 +1,17 @@
+server:
+  port: 8080
+  
+spring:
+  application:
+    name:  car-trawler
+  profiles:
+    active: 'local'
+  
+#ENDPOINTS:
+management:
+  endpoints:
+    web:
+      exposure:
+        include:
+        - 'health'
+        - 'info'
