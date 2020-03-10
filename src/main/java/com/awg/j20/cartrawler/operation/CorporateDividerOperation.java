@@ -1,8 +1,6 @@
 package com.awg.j20.cartrawler.operation;
 
-import java.util.ArrayList;
 import java.util.List;
-import java.util.function.BiFunction;
 import java.util.function.Predicate;
 import java.util.stream.Collectors;
 
@@ -36,8 +34,9 @@ public class CorporateDividerOperation {
 		return operationResult;
 	}
 	
+	/*
 	private CarGroupedByCorpContainer teeing() {
-		/*
+		
 		Collector<CarResult, CarResult, CarResult> compositeCollector = 
 				Collectors.teeing(
 						Collectors.filtering(corpPredicate, Collectors.toList()),
@@ -46,18 +45,8 @@ public class CorporateDividerOperation {
 							List<CarResult> corpRes = new ArrayList<>();
 							corpRes.addAll(corp);
 						});
-		*/
+		
 		CarGroupedByCorpContainer operationResult = new CarGroupedByCorpContainer();
 		return operationResult;
-	}
-	
-	private static <T, U, R> List<R> listCombiner(
-			  List<T> list1, List<U> list2, BiFunction<T, U, R> combiner) {
-			    List<R> result = new ArrayList<>();
-			    for (int i = 0; i < list1.size(); i++) {
-			        result.add(combiner.apply(list1.get(i), list2.get(i)));
-			    }
-			    return result;
-			}
-
+	}*/
 }

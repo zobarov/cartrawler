@@ -11,6 +11,7 @@ import com.awg.j20.cartrawler.operation.CarGroupedByCorpContainer;
 import com.awg.j20.cartrawler.operation.CarUniqueContainer;
 import com.awg.j20.cartrawler.operation.CorporateDividerOperation;
 import com.awg.j20.cartrawler.operation.DuplicateFilterOperation;
+import com.awg.j20.cartrawler.operation.SortByCostWithinSippGroupOperation;
 import com.awg.j20.cartrawler.operation.SortBySippOperation;
 
 @Component
@@ -22,6 +23,8 @@ public class MainWorkflow {
 	private CorporateDividerOperation corpDivOperation;
 	@Autowired
 	private SortBySippOperation sippSorterOperation;
+	@Autowired
+	private SortByCostWithinSippGroupOperation costInGroupSorterOperation;
 	
 	public void executeAllOperationsFlow() {
 		HardcodedCarSource carSource = new HardcodedCarSource();
@@ -39,11 +42,17 @@ public class MainWorkflow {
 		Display display = new Display();
 		
 		display.render(carGrouped.consolidatedCorporateFirst(), "NON-SORTED. GROUPPED.");		
-		//sorting:
+		//sorting by groups:
 		CarGroupedByCorpContainer carGroupedSortedBySipp = new CarGroupedByCorpContainer();
 		carGroupedSortedBySipp
 			.withCorporateCars(sippSorterOperation.sortBySipp(carGrouped.listAllCorporateCars()))
 			.withNonCorporateCars(sippSorterOperation.sortBySipp(carGrouped.listAllNonCorporateCars()));
 		display.render(carGroupedSortedBySipp.consolidatedCorporateFirst(), "SORTED BY SIPP");
+		//sorting by cost in groups:
+		CarGroupedByCorpContainer carSortedByCostInGroups = new CarGroupedByCorpContainer();
+		carSortedByCostInGroups
+				.withCorporateCars(costInGroupSorterOperation.sortByCost(carGroupedSortedBySipp.listAllCorporateCars()))
+				.withNonCorporateCars(costInGroupSorterOperation.sortByCost(carGroupedSortedBySipp.listAllNonCorporateCars()));
+		display.render(carGroupedSortedBySipp.consolidatedCorporateFirst(), "SORTED BY COST IN GROUPS");
 	}
 }

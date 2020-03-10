@@ -31,6 +31,10 @@ public class CarResult {
         return this.sippCode;        
     }
     
+    public String getSippCodeType() {
+    	return this.sippCode.substring(0, 1);
+    }
+    
     public double getRentalCost() {
         return this.rentalCost;        
     }
