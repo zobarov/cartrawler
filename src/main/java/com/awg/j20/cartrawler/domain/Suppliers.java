@@ -1,4 +1,4 @@
-package com.awg.j20.cartrawler.operation;
+package com.awg.j20.cartrawler.domain;
 
 /**
  * Enumerates all registered car suppliers.

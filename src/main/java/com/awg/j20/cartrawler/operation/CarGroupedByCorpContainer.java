@@ -52,5 +52,13 @@ public class CarGroupedByCorpContainer {
 		
 		return groupedCars;
 	}
+	
+	public List<CarResult> listAllCorporateCars() {
+		return this.corporateCars;
+	}
+	
+	public List<CarResult> listAllNonCorporateCars() {
+		return this.nonCorporateCars;
+	}
 
 }

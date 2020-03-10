@@ -12,9 +12,11 @@ public class Display {
         }
     }
     
-    public void render(List<CarResult> cars) {
+    public void render(List<CarResult> cars, String header) {
+    	System.out.println("------------" + header + "-------------");
         for (CarResult car : cars) {
             System.out.println (car);
         }
+        System.out.println("---END-----" + header + "-------------");
     }
 }
