@@ -27,11 +27,7 @@ Runs on port 8080
 ### Used Libraries and frameworks
 
 - Java 11 
-- Spring Boot, REST, Test
+- Spring Boot, Test
 - Gradle
 - JUnit 5
-- Swagger
 
-### Reference Documentation
-
-Endpoint API will be available by http://localhost:8080/swagger-ui.html
