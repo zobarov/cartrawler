@@ -3,10 +3,20 @@ package com.awg.j20.cartrawler.ds;
 import java.util.HashSet;
 import java.util.Set;
 
+import org.springframework.stereotype.Service;
+
 import com.awg.j20.cartrawler.ds.car.CarResult;
 
-public class InMemoryCarSource {
-	public static final Set<CarResult> CARS;
+@Service
+public class HardcodedCarSource implements CarDataSource {
+	
+	@Override
+	public Set<CarResult> carResults() {
+		return CARS;
+	}
+	
+	
+	private static final Set<CarResult> CARS;
 	static {
 		CARS = new HashSet<>();
 		CARS.add(new CarResult("Volkswagen Polo", "NIZA", "EDMR", 12.81d, CarResult.FuelPolicy.FULLEMPTY));
@@ -330,5 +340,6 @@ public class InMemoryCarSource {
 		CARS.add(new CarResult("Volkswagen Touran", "FLIZZR", "IVMR", 159.66d, CarResult.FuelPolicy.FULLFULL));
 		CARS.add(new CarResult("Citroen C1", "FLIZZR", "MBMR", 49.08d, CarResult.FuelPolicy.FULLFULL));
 	}
+
 
 }

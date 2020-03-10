@@ -12,8 +12,12 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.core.env.Environment;
 
-import com.awg.j20.cartrawler.ds.InMemoryCarSource;
+import com.awg.j20.cartrawler.ds.HardcodedCarSource;
 import com.awg.j20.cartrawler.ds.view.Display;
+import com.awg.j20.cartrawler.operation.CarGroupedByCorpContainer;
+import com.awg.j20.cartrawler.operation.CarUniqueContainer;
+import com.awg.j20.cartrawler.operation.CorporateDividerOperation;
+import com.awg.j20.cartrawler.operation.DuplicateFilterOperation;
 
 /**
  * Main application entry point
@@ -23,7 +27,11 @@ public class CarTrawlerApplication implements CommandLineRunner {
 	private Logger logger = LoggerFactory.getLogger("CarTrawlerApplication");
 	
 	@Autowired
-    private Environment env; 
+    private Environment env;
+	@Autowired
+	private DuplicateFilterOperation dubFilter;
+	@Autowired
+	private CorporateDividerOperation corpDivOperation;
 
 	public static void main(String[] args) {
 		new SpringApplicationBuilder(CarTrawlerApplication.class)
@@ -39,9 +47,20 @@ public class CarTrawlerApplication implements CommandLineRunner {
 		logger.info("Active Mode: " + env.getProperty("spring.application.name"));		
 		logger.info("Active Profiles: " + Arrays.toString(env.getActiveProfiles()));
 		
-		InMemoryCarSource carSource = new InMemoryCarSource();
+		HardcodedCarSource carSource = new HardcodedCarSource();
+		logger.info("Initial DataSet contains:" + carSource.carResults().size() + " entries.");
+		
+		CarUniqueContainer uc = dubFilter.filterDublicates(carSource.carResults());
+		logger.info("Unique cars DataSet contains:" + uc.uniqueSize() + " entries.");
+		
+		CarGroupedByCorpContainer carGrouped = corpDivOperation.groupCorporates(uc.listAllOrdered());
+		
+		logger.info("CarGrouped Corp size:" + carGrouped.sizeCorporateCar() + " entries.");
+		logger.info("CarGrouped NonCorp size:" + carGrouped.sizeNonCorporateCars() + " entries.");
+		logger.info("CarGrouped All size:" + carGrouped.sizeAll() + " entries.");
+		
 		Display display = new Display();
-		display.render(carSource.CARS);
+		display.render(carGrouped.consolidatedCorporateFirst());
 		
 		
 	}
