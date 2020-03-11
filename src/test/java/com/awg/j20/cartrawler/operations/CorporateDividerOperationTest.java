@@ -16,9 +16,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
+import com.awg.j20.cartrawler.domain.CarGroupedByCorpContainer;
+import com.awg.j20.cartrawler.domain.CarUniqueContainer;
 import com.awg.j20.cartrawler.ds.car.CarResult;
-import com.awg.j20.cartrawler.operation.CarGroupedByCorpContainer;
-import com.awg.j20.cartrawler.operation.CarUniqueContainer;
 import com.awg.j20.cartrawler.operation.CorporateDividerOperation;
 import com.awg.j20.cartrawler.operation.DuplicateFilterOperation;
 

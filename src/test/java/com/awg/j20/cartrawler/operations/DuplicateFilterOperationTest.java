@@ -14,9 +14,9 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.test.context.junit4.SpringRunner;
 
+import com.awg.j20.cartrawler.domain.CarUniqueContainer;
 import com.awg.j20.cartrawler.ds.HardcodedCarSource;
 import com.awg.j20.cartrawler.ds.car.CarResult;
-import com.awg.j20.cartrawler.operation.CarUniqueContainer;
 import com.awg.j20.cartrawler.operation.DuplicateFilterOperation;
 
 @SpringBootTest

@@ -11,6 +11,10 @@ import org.springframework.stereotype.Component;
 
 import com.awg.j20.cartrawler.ds.car.CarResult;
 
+/**
+ * Sorting data transformation operation.
+ * Sorts by rental costs within SIPP groups.
+ */
 @Component
 public class SortByCostWithinSippGroupOperation {
 	

@@ -9,6 +9,10 @@ import org.springframework.stereotype.Component;
 
 import com.awg.j20.cartrawler.ds.car.CarResult;
 
+/**
+ * Sorting data transformation operation.
+ * Sorts target car set by SIPP group type.
+ */
 @Component
 public class SortBySippOperation {
 	

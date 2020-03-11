@@ -39,6 +39,6 @@ public class CarTrawlerApplication implements CommandLineRunner {
 		logger.info("Active Mode: " + env.getProperty("spring.application.name"));		
 		logger.info("Active Profiles: " + Arrays.toString(env.getActiveProfiles()));
 		
-		mainWorkflow.executeAllOperationsFlow();		
+		mainWorkflow.executeAllOperationsFlow();
 	}
 }

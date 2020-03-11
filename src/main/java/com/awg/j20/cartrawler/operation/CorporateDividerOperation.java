@@ -6,13 +6,17 @@ import java.util.stream.Collectors;
 
 import org.springframework.stereotype.Component;
 
+import com.awg.j20.cartrawler.domain.CarGroupedByCorpContainer;
 import com.awg.j20.cartrawler.domain.Suppliers;
 import com.awg.j20.cartrawler.ds.car.CarResult;
 
+/**
+ * Data transform operation to divide income ordered
+ * list of cars to gropus.
+ */
 @Component
 public class CorporateDividerOperation {
 	
-	//Note corporate cars are those supplied by AVIS, BUDGET, ENTERPRISE, FIREFLY, HERTZ, SIXT, THRIFTY. 
 	public CarGroupedByCorpContainer groupCorporates(List<CarResult> carOrderedList) {
 		Predicate<CarResult> corpPredicate = car -> {
 			Suppliers supplier = Suppliers.findByName(car.getSupplierName());

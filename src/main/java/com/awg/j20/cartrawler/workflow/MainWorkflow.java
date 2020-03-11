@@ -5,15 +5,18 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
+import com.awg.j20.cartrawler.domain.CarGroupedByCorpContainer;
+import com.awg.j20.cartrawler.domain.CarUniqueContainer;
 import com.awg.j20.cartrawler.ds.HardcodedCarSource;
 import com.awg.j20.cartrawler.ds.view.Display;
-import com.awg.j20.cartrawler.operation.CarGroupedByCorpContainer;
-import com.awg.j20.cartrawler.operation.CarUniqueContainer;
 import com.awg.j20.cartrawler.operation.CorporateDividerOperation;
 import com.awg.j20.cartrawler.operation.DuplicateFilterOperation;
 import com.awg.j20.cartrawler.operation.SortByCostWithinSippGroupOperation;
 import com.awg.j20.cartrawler.operation.SortBySippOperation;
 
+/**
+ * Applies all required data transforming steps consequently.
+ */
 @Component
 public class MainWorkflow {
 	private Logger logger = LoggerFactory.getLogger("MainWorkflow");

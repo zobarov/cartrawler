@@ -5,7 +5,7 @@ package com.awg.j20.cartrawler.domain;
  * Divided in two groups corporate and non-corporate.
  */
 public enum Suppliers {
-	
+	//corporate:
 	AVIS(true),
 	BUDGET(true),
 	ENTERPRISE(true),
@@ -13,10 +13,13 @@ public enum Suppliers {
 	HERTZ(true),
 	SIXT(true),
 	THRIFTY(true),
-	//
+	//non-corporate:
 	MARBESOL(false),
 	GOLDCAR(false),
 	NIZA(false),
+	CENTAURO(false),
+	FLIZZR(false),
+	RHODIUM(false),
 	//special case:
 	UNREGISTERED(false);
 	

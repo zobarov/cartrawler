@@ -1,10 +1,16 @@
-package com.awg.j20.cartrawler.operation;
+package com.awg.j20.cartrawler.domain;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import com.awg.j20.cartrawler.ds.car.CarResult;
 
+/**
+ * Container to store divide by groups sets of cars.
+ * Currently supports two group definitions:
+ * - corporate cars
+ * - non-corporate cars
+ */
 public class CarGroupedByCorpContainer {
 	private List<CarResult> corporateCars = new ArrayList<>();
 	private List<CarResult> nonCorporateCars = new ArrayList<>();

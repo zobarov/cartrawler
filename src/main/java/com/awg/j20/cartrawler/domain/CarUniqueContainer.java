@@ -1,4 +1,4 @@
-package com.awg.j20.cartrawler.operation;
+package com.awg.j20.cartrawler.domain;
 
 import java.util.LinkedHashMap;
 import java.util.LinkedList;
