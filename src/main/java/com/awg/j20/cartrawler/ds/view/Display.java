@@ -17,6 +17,6 @@ public class Display {
         for (CarResult car : cars) {
             System.out.println (car);
         }
-        System.out.println("---END-----" + header + "-------------");
+        System.out.println("---END-----" + header + "-------------\n\n\n\n\n");
     }
 }
